@@ -46,13 +46,13 @@ class SelectionPage extends PageComponent {
                 }
             }
             for (let i = 0; i < json.deck.length; i++) {
-                const field = json.cards[i];
+                const field = json.deck[i];
                 if (field != null) {
                     selectedCards.push([CardState.IN_DECK, new Card(json.deck[i].color, json.deck[i].value), field.x, field.y]);
                 }
             }
             for (let i = 0; i < json.discard.length; i++) {
-                const field = json.cards[i];
+                const field = json.discard[i];
                 if (field != null) {
                     selectedCards.push([CardState.IN_DISCARD_PILE, new Card(json.discard[i].color, json.discard[i].value), field.x, field.y]);
                 }

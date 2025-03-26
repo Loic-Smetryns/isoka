@@ -109,7 +109,6 @@ class PlaygroundPage extends PageComponent {
         const card = this.cardManager.toDraw();
         const cardComponent = this.cards[card.getId()];
         cardComponent.unstack(x, y);
-        this.cardManager.unstackDeck(card);
         this.select(cardComponent, CardComponent.WIDTH / 2, CardComponent.HEIGHT / 2);
         this.deck.render();
     }

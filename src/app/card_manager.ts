@@ -56,18 +56,15 @@ class CardManager{
         this.deck.splice(this.deck.indexOf(card), 1);
     }
 
-    public unstackDeck(card: Card) : void{
-        this.inGame.push(card);
-        this.deck.splice(this.deck.indexOf(card), 1);
-    }
-
     public unstackDiscardPile(card: Card) : void{
         this.inGame.push(card);
         this.discardPile.splice(this.discardPile.indexOf(card), 1);
     }
 
     public toDraw(): Card{
-        return this.deck.splice(Math.random() * this.deck.length, 1)[0];
+        const card: Card = this.deck.splice(Math.random() * this.deck.length, 1)[0];
+        this.inGame.push(card);
+        return card;
     }
 
     public deckEmpty(): boolean{

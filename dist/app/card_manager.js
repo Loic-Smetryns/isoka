@@ -37,16 +37,14 @@ class CardManager {
         this.inGame.splice(this.inGame.indexOf(card), 1);
         this.deck.splice(this.deck.indexOf(card), 1);
     }
-    unstackDeck(card) {
-        this.inGame.push(card);
-        this.deck.splice(this.deck.indexOf(card), 1);
-    }
     unstackDiscardPile(card) {
         this.inGame.push(card);
         this.discardPile.splice(this.discardPile.indexOf(card), 1);
     }
     toDraw() {
-        return this.deck.splice(Math.random() * this.deck.length, 1)[0];
+        const card = this.deck.splice(Math.random() * this.deck.length, 1)[0];
+        this.inGame.push(card);
+        return card;
     }
     deckEmpty() {
         return (this.deck.length == 0);
