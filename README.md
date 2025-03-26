@@ -10,7 +10,7 @@ Welcome to the Isoka project! Isoka is a web application developed in TypeScript
 
 ## Usage
 ```
-git clone https://github.com/CapeItalist/isoka.git
+git clone https://github.com/Loic-Smetryns/isoka.git
 cd isoka
 npm install
 tsc
@@ -38,7 +38,7 @@ Bienvenue dans le projet Isoka ! Isoka est une application web développée en T
 
 ## Utilisation
 ```
-git clone https://github.com/CapeItalist/isoka.git
+git clone https://github.com/Loic-Smetryns/isoka.git
 cd isoka
 npm install
 tsc
