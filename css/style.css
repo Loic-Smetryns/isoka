@@ -1,0 +1,195 @@
+:root{
+    --card-width : 196px;
+    --card-height : 300px;
+}
+
+* {
+    user-select: none;
+}
+
+body{
+    margin: 0;
+    background-image: url("../assets/background.webp");
+    background-repeat: repeat;
+    background-size: 180px;
+}
+
+.page{
+    width: 100vw;
+    height: 100vh;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.button-container button{
+    display: inline-block;
+    min-width: 105px;
+}
+
+button{
+    padding: 5px;
+}
+
+.main-order{
+    display: block;
+
+    font-weight: bold;
+    font-size: 24px;
+
+    text-align: center;
+
+    padding: 16px 0;
+}
+
+.selector-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: start;
+
+    margin-top: 20px;
+    margin-left: 10px;
+    padding-bottom: 20px;
+    gap: calc(20px);
+
+    overflow-y: scroll;
+}
+
+.card-selector{
+    min-width: calc(100vw / 13 - 20px);
+    min-height: calc((100vw / 13 - 20px) * 306 / 200);
+
+    background-size: cover;
+    border-radius: 15px;
+    box-shadow: 0 2px 2px black;
+}
+
+.card-selector-mask{
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+
+    background-color: black;
+    opacity: 0%;
+
+    user-select: none;
+}
+
+.card-selector.in-deck>.card-selector-mask{
+    opacity: 0%;
+}
+
+.card-selector.in-discard-pile>.card-selector-mask{
+    opacity: 35%;
+}
+
+.card-selector.unselected>.card-selector-mask{
+    opacity: 65%;
+}
+
+.card-selector.in-discard-pile, .card-selector.unselected{
+    box-shadow: 0 1px 1px black;
+}
+
+.card{
+    position: fixed;
+
+    transition: height .1s ease-in-out, 
+        width .1s ease-in-out, 
+        box-shadow .1s ease-in-out, 
+        transform .1s ease-in-out, 
+        background-size .1s ease-in-out,
+        background-position .1s ease-in-out;
+
+    width: var(--card-width);
+    height: var(--card-height);
+
+    background-size: 200px 305px;
+    background-position: -2px -4px;
+    background-repeat: no-repeat;
+    box-shadow: 0 3px 3px black;
+
+    background-color: #555;
+    border-radius: 15px;
+}
+
+.card-take{
+    transform: translate(calc(var(--card-width) * -0.05 + 16px), calc(var(--card-height) * -0.05 - 16px));
+    width: calc(var(--card-width) * 1.1);
+    height: calc(var(--card-height) * 1.1);
+
+    background-size: 220px 335px;
+    background-position: -2px -4px;
+
+    box-shadow: 0 15px 20px black;
+}
+
+.deck{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+
+    width: var(--card-width);
+    height: var(--card-height);
+
+    padding: 8px;
+
+    background-image: url("../assets/deck.webp");
+    background-size: cover;
+
+    border-radius: 19px;
+    box-shadow: 0 3px 3px black;
+}
+
+.deck-cover{
+    width: 100%;
+    height: 100%;
+
+    border-radius: 15px;
+}
+
+.deck.not-empty > .deck-cover{
+    background-image: url(../assets/cards/red_back.png);
+    background-size: 200px 305px;
+    background-repeat: no-repeat;
+
+    box-shadow: 0 5px 5px black;
+}
+
+.discard{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+
+    width: var(--card-width);
+    height: var(--card-height);
+    padding: 8px;
+
+    background-image: url("../assets/discard_pile.webp");
+    background-size: cover;
+    border-radius: 19px;
+    box-shadow: 0 3px 3px black;
+}
+
+.discard-top{
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    opacity: 50%;
+}
+
+.deck.flown-hover, .discard.flown-hover{
+    box-shadow: 0 0 5px yellow;
+}
+
+.save-button{
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
