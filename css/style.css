@@ -12,6 +12,8 @@ body{
     background-image: url("../assets/background.webp");
     background-repeat: repeat;
     background-size: 180px;
+
+    overflow-x: hidden;
 }
 
 .page{
@@ -55,17 +57,18 @@ button{
     padding-bottom: 20px;
     gap: calc(20px);
 
-    overflow-y: scroll;
+    padding-right: 15px;
 }
 
 .card-selector{
-    min-width: calc(100vw / 13 - 20px);
-    min-height: calc((100vw / 13 - 20px) * 306 / 200);
+    width: calc(100vw / 13 - 21px);
+    height: calc((100vw / 13 - 21px) * 306 / 200);
 
     background-size: cover;
     border-radius: 15px;
     box-shadow: 0 2px 2px black;
 }
+
 
 .card-selector-mask{
     width: 100%;
