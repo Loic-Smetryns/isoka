@@ -29,17 +29,22 @@ class CardManager {
     }
     stackDeck(card) {
         this.deck.push(card);
-        this.inGame.splice(this.inGame.indexOf(card), 1);
-        this.discardPile.splice(this.discardPile.indexOf(card), 1);
+        if (this.inGame.indexOf(card) >= 0)
+            this.inGame.splice(this.inGame.indexOf(card), 1);
+        if (this.discardPile.indexOf(card) >= 0)
+            this.discardPile.splice(this.discardPile.indexOf(card), 1);
     }
     stackDiscardPile(card) {
         this.discardPile.push(card);
-        this.inGame.splice(this.inGame.indexOf(card), 1);
-        this.deck.splice(this.deck.indexOf(card), 1);
+        if (this.inGame.indexOf(card) >= 0)
+            this.inGame.splice(this.inGame.indexOf(card), 1);
+        if (this.deck.indexOf(card) >= 0)
+            this.deck.splice(this.deck.indexOf(card), 1);
     }
     unstackDiscardPile(card) {
         this.inGame.push(card);
-        this.discardPile.splice(this.discardPile.indexOf(card), 1);
+        if (this.discardPile.indexOf(card) >= 0)
+            this.discardPile.splice(this.discardPile.indexOf(card), 1);
     }
     toDraw() {
         const card = this.deck.splice(Math.random() * this.deck.length, 1)[0];

@@ -31,7 +31,8 @@ class DiscardPilePage extends PageComponent {
     }
     toDraw(selector) {
         this.cards_drawn.push(selector.getCard());
-        this.selectors.splice(this.selectors.indexOf(selector), 1);
+        if (this.selectors.indexOf(selector) >= 0)
+            this.selectors.splice(this.selectors.indexOf(selector), 1);
         this.removeChild(selector, true);
     }
 }

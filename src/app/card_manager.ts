@@ -45,20 +45,20 @@ class CardManager{
     public stackDeck(card: Card) : void{
         this.deck.push(card);
 
-        this.inGame.splice(this.inGame.indexOf(card), 1);
-        this.discardPile.splice(this.discardPile.indexOf(card), 1);
+        if(this.inGame.indexOf(card) >= 0) this.inGame.splice(this.inGame.indexOf(card), 1);
+        if(this.discardPile.indexOf(card) >= 0) this.discardPile.splice(this.discardPile.indexOf(card), 1);
     }
 
     public stackDiscardPile(card: Card) : void{
         this.discardPile.push(card);
 
-        this.inGame.splice(this.inGame.indexOf(card), 1);
-        this.deck.splice(this.deck.indexOf(card), 1);
+        if(this.inGame.indexOf(card) >= 0) this.inGame.splice(this.inGame.indexOf(card), 1);
+        if(this.deck.indexOf(card) >= 0) this.deck.splice(this.deck.indexOf(card), 1);
     }
 
     public unstackDiscardPile(card: Card) : void{
         this.inGame.push(card);
-        this.discardPile.splice(this.discardPile.indexOf(card), 1);
+        if(this.discardPile.indexOf(card) >= 0) this.discardPile.splice(this.discardPile.indexOf(card), 1);
     }
 
     public toDraw(): Card{
